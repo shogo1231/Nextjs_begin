@@ -1,10 +1,10 @@
 // 型のために導入
-import { GetStaticPaths, GetStaticProps, NextPage, NextPageContext } from 'next'
+import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 // Next.jsの組み込みのコンポーネント
 import Head  from 'next/head'
 import { useRouter } from 'next/router'
 
-// ページコンポーネントのprops型定義（ここでは空）
+// ページコンポーネントのprops型定義
 type PostProps = {
   id: string
 };
@@ -60,5 +60,5 @@ export const getStaticPaths: GetStaticPaths = async() => {
 export const getStaticProps: GetStaticProps<PostProps> = async (context) => {
   const id = Array.isArray(context.params['id']) ? context.params['id'][0] : context.params['id'];
   return {props: {id}}
-} 
+}
 export default Post

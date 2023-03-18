@@ -2,6 +2,7 @@
 import { GetStaticProps, NextPage, NextPageContext } from 'next'
 // Next.jsの組み込みのコンポーネント
 import Head  from 'next/head'
+import Link from 'next/link'
 
 // ページコンポーネントのprops型定義（ここでは空）
 type SSGProps = {
@@ -23,6 +24,11 @@ const SSG: NextPage<SSGProps> = (props) => {
         </p>
         <p>{message}</p>
       </main>
+      <Link href="/ssr">
+        GOTOSSR
+      </Link>
+      {/* <p>{process.env.TEST}</p> */}
+      <p>{process.env.NEXT_PUBLIC_TEST}</p>
     </div>
   )
 }
