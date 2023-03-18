@@ -2,8 +2,28 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
+import styled from 'styled-components'
 
 const inter = Inter({ subsets: ['latin'] })
+const H1 = styled.h1`color:red;`
+const Badge = styled.span`
+  padding: 8px 16px;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  background: red;
+  border-radius: 16px;
+`
+
+type ButtonProps = {
+  color: string,
+  backgroundColor: string
+}
+
+const Button = styled.button<ButtonProps>`
+  color: ${(props) => props.color}
+  background: ${(props) => props.backgroundColor}
+`
 
 export default function Home() {
   return (
@@ -18,11 +38,9 @@ export default function Home() {
         <div className={styles.description}>
           <p>
           Get started by editing&nbsp;
-          Get started by editing&nbsp;
-          Get started by editing&nbsp;
-          Get started by editing&nbsp;
             <code className={styles.code}>pages/index.tsx</code>
           </p>
+          <H1>welcome to nextjs</H1>
           <div>
             <a
               href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
@@ -42,6 +60,9 @@ export default function Home() {
           </div>
         </div>
 
+        <Badge>Hello World</Badge>
+        <Button color="#FF0000" backgroundColor="transparent">Hello</Button>
+        <Button color="white" backgroundColor="#1E90FF">World</Button>
         <div className={styles.center}>
           <Image
             className={styles.logo}
